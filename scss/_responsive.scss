@@ -102,3 +102,18 @@
         flex-wrap: wrap;
     }
 }
+@media (max-width: 767px) {
+    .product {
+        .image-box {
+            height: 150px;
+        }
+
+        h3 {
+            font-size: 15px;
+        }
+
+        .info {
+            padding: 10px;
+        }
+    }
+}
