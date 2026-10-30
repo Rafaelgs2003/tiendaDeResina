@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGIN3D</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS de IMAGIN3D -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <header class="header navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <!-- LOGOTIPO -->
+                <a href="index.html" class="logo navbar-brand">
+                    <img src="img/logo-imagin3d.png" alt="Logotipo de IMAGIN3D" class="logo-img">
+                </a>
+
+                <!-- BOTÓN MENÚ MÓVIL -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- NAVEGACIÓN -->
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+
+                    <nav class="navbar-nav mx-auto">
+                        <a href="index.html" class="nav-link ">Inicio</a>
+                        <a href="colecciones.html" class="nav-link">Colecciones</a>
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                        <a href="conocenos.html" class="nav-link active">Conócenos</a>
+                    </nav>
+
+                    <!-- USUARIO -->
+                    <div class="dropdown">
+                        <button class="user dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            <img src="img/logo.png" alt="Avatar" width="30" height="30" class="rounded-circle">
+
+                            Mi cuenta
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item" href="login.html">
+                                    Iniciar sesión
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="registro.html">
+                                    Registrarse
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+
+        <main class="py-4">
+
+            <section class="container-fluid px-4 mb-5">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <span class="label">Sobre nosotros</span>
+
+                        <h1>Conoce IMAGIN3D</h1>
+
+                        <p>
+                            En IMAGIN3D nos apasionan el diseño, la creatividad
+                            y la impresión 3D con resina.
+                        </p>
+
+                        <p>
+                            Nos dedicamos a transformar ideas en figuras únicas,
+                            miniaturas de colección y piezas personalizadas,
+                            cuidando cada detalle del proceso de fabricación.
+                        </p>
+
+                        <p>
+                            Queremos que conozcas cómo trabajamos, desde la
+                            preparación de los modelos digitales hasta los
+                            acabados finales de nuestras figuras.
+                        </p>
+
+                        <a href="colecciones.html" class="btn">
+                            Descubre nuestros productos
+                        </a>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <img src="img/figura1.jpg" class="img-fluid rounded-4" alt="Figura de resina de IMAGIN3D">
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-fluid px-4 mb-5">
+                <h2>El proceso de impresión en vídeo</h2>
+
+                <p>
+                    Descubre cómo se prepara, imprime y termina
+                    una figura fabricada con resina.
+                </p>
+
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <video controls preload="metadata" class="w-100 rounded-4" poster="img/figura1.webp">
+                            <source src="video/presentacion-imagin3d.mp4" type="video/mp4">
+                            Tu navegador no admite vídeo HTML5.
+                        </video>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card p-4 h-100">
+                            <h3>De la idea a la realidad</h3>
+                            <p>
+                                Cada figura comienza con un modelo digital.
+                                Después se prepara para imprimir, se limpia,
+                                se cura y se revisan sus acabados.
+                            </p>
+
+                            <a href="producto.html" class="btn mt-auto">
+                                Ver un producto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-fluid px-4 mb-5">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6">
+                        <h2>Escucha nuestro proceso creativo</h2>
+                        <p>
+                            Una experiencia sonora relacionada con
+                            nuestro taller de impresión 3D.
+                        </p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card p-4">
+                            <h3>Audio IMAGIN3D</h3>
+
+                            <audio controls preload="none" class="w-100">
+                                <source src="audio/proceso-impresion.mp3" type="audio/mpeg">
+                                Tu navegador no admite audio HTML5.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+
+        <footer>
+
+            <div class="footer-grid">
+
+                <div>
+                    <a href="index.html" class="logo">
+
+                        IMAGIN3D
+                    </a>
+
+                    <p>
+                        Estudio especializado en impresión 3D con resina,
+                        figuras de colección y piezas personalizadas
+                        con acabados de alta calidad.
+                    </p>
+
+                    <span class="tag">
+                        Resina · 3D · Diseño
+                    </span>
+
+                    <p>
+                        Síguenos en nuestras redes sociales
+                    </p>
+
+                    <div>
+                        <a href="#">◎ Instagram</a>
+                        <a href="#">f Facebook</a>
+                        <a href="#">♪ TikTok</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Explora IMAGIN3D</h3>
+
+                    <a href="index.html">⌂ Inicio</a>
+                    <a href="colecciones.html">▦ Colecciones</a>
+                    <a href="contacto.html">✉ Contacto</a>
+                    <a href="perfil.html">♙ Mi perfil</a>
+                </div>
+
+                <div>
+                    <h3>Atención al cliente</h3>
+
+                    <a href="mailto:info@imagin3d.com">
+                        ✉ info@imagin3d.com
+                    </a>
+
+                    <a href="tel:+34600000000">
+                        ☎ +34 600 000 000
+                    </a>
+
+                    <span>⌖ Córdoba, España</span>
+
+                    <p>
+                        ¿Tienes una idea para imprimir?
+                        Contacta con nosotros.
+                    </p>
+
+                    <a href="contacto.html" class="tag">
+                        Solicitar información →
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 IMAGIN3D · Todos los derechos reservados
+                </span>
+
+                <div>
+                    <a href="privacidad.html">Privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="contacto.html">Contacto</a>
+                    <a href="conocenos.html">Conócenos</a>
+                </div>
+                <div>
+                    <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+                        rel="license noopener noreferrer">
+                        <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png"
+                            alt="Licencia Creative Commons BY-NC-SA 4.0">
+                    </a>
+                    <p>
+                        Los contenidos originales de IMAGIN3D indicados en esta web
+                        están bajo licencia
+                        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                            Creative Commons BY-NC-SA 4.0
+                        </a>.
+                    </p>
+                </div>
+
+            </div>
+
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

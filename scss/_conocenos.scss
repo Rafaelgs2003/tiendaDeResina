@@ -1,0 +1,42 @@
+
+@use "variables" as v;
+
+video {
+    display: block;
+    max-width: 100%;
+    background: #111;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+
+audio {
+    display: block;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .multimedia-title {
+        font-size: 26px;
+    }
+
+    video {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+@media (max-width: 767px) {
+    video {
+        width: 100%;
+    }
+
+    .multimedia-title {
+        font-size: 24px;
+    }
+}
