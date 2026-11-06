@@ -107,33 +107,41 @@
 
 // ----------------------------------------------------------
 // SLIDER (CSS puro)
-// Cada diapositiva dura $tiempo-slide. El ciclo completo es
-// $tiempo-slide × $num-slides y cada una arranca con un
-// animation-delay escalonado.
+// Una "tira" con las diapositivas en fila (display: flex) que
+// se desplaza hacia la izquierda con @keyframes. Se cambia de
+// imagen cada $tiempo-slide: 4 s quieta + 1 s de desplazamiento.
+// La 5.ª diapositiva es una copia de la 1.ª: al llegar a ella
+// la animación vuelve a empezar sin que se note el salto.
 // ----------------------------------------------------------
 $num-slides: 4;
 $tiempo-slide: 5s;
 $ciclo: $tiempo-slide * $num-slides;
 
-// Una diapositiva: entra (0-5 %), se mantiene (5-25 %) y sale (25-30 %).
-// Con 4 diapositivas el 25 % del ciclo es exactamente su turno,
-// así que se solapa el fundido de salida con la entrada de la siguiente.
-@keyframes slider-slide {
-    0% {
-        opacity: 0;
-        transform: translateX(6%) scale(1.03);
+// La tira avanza 20 % de su ancho (= una diapositiva) en cada paso
+@keyframes slider-deslizar {
+
+    0%,
+    20% {
+        transform: translateX(0);
     }
 
-    5%,
-    25% {
-        opacity: 1;
-        transform: translateX(0) scale(1);
+    25%,
+    45% {
+        transform: translateX(-20%);
     }
 
-    30%,
+    50%,
+    70% {
+        transform: translateX(-40%);
+    }
+
+    75%,
+    95% {
+        transform: translateX(-60%);
+    }
+
     100% {
-        opacity: 0;
-        transform: translateX(-6%) scale(1);
+        transform: translateX(-80%);
     }
 }
 
@@ -141,12 +149,12 @@ $ciclo: $tiempo-slide * $num-slides;
 @keyframes slider-punto {
 
     0%,
-    25% {
+    22% {
         background: v.$blanco;
         transform: scale(1.3);
     }
 
-    30%,
+    26%,
     100% {
         background: rgba(v.$blanco, .45);
         transform: scale(1);
@@ -157,57 +165,66 @@ $ciclo: $tiempo-slide * $num-slides;
     position: relative;
     height: clamp(220px, 42vw, 420px);
     overflow: hidden;
-    background: v.$verde-imagen;
+    background: v.$blanco;
+    border: 1px solid v.$borde-verde;
     border-radius: v.$radio-lg;
     box-shadow: v.$sombra-suave;
 }
 
-.slide {
-    position: absolute;
-    inset: 0;
+// 5 diapositivas × 100 % del visor = 500 % de ancho
+.slider-track {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    opacity: 0;
-    animation: slider-slide $ciclo infinite;
+    width: 500%;
+    height: 100%;
+    animation: slider-deslizar $ciclo cubic-bezier(.65, 0, .35, 1) infinite;
+}
 
-    // Sin animaciones (reduced motion) se ve al menos la primera
-    &:first-child {
-        opacity: 1;
-    }
+// Diapositiva: texto a la izquierda y foto a la derecha
+// (el padding inferior deja sitio a los puntos indicadores)
+.slide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    flex: 0 0 20%;
+    gap: 24px;
+    height: 100%;
+    margin: 0;
+    padding: 24px 24px 56px;
+    background: v.$blanco;
 
     img {
         width: 100%;
         height: 100%;
+        border-radius: v.$radio-md;
         object-fit: contain;
     }
+}
 
-    figcaption {
-        position: absolute;
-        top: 14px;
-        left: 14px;
-        max-width: calc(100% - 28px);
-        padding: 6px 14px;
-        background: rgba(v.$oscuro, .7);
-        border-radius: v.$radio-pill;
-        color: v.$blanco;
-        font-family: v.$fuente-titulo;
-        font-size: 14px;
+.slide-texto {
+    align-self: center;
+    padding-left: 12px;
+
+    h3 {
+        margin-bottom: 8px;
+        font-size: 22px;
+    }
+
+    p {
+        margin: 0;
     }
 }
 
 .slider-dots {
     position: absolute;
-    bottom: 12px;
+    bottom: 16px;
     left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
     display: flex;
     gap: 8px;
     padding: 6px 10px;
-    background: rgba(v.$oscuro, .55);
+    background: rgba(v.$oscuro, .6);
     border-radius: v.$radio-pill;
-    transform: translateX(-50%);
 
     span {
         width: 10px;
@@ -216,15 +233,15 @@ $ciclo: $tiempo-slide * $num-slides;
         border-radius: 50%;
         animation: slider-punto $ciclo infinite;
 
+        // Sin animaciones (reduced motion) la primera queda marcada
         &:first-child {
             background: v.$blanco;
         }
     }
 }
 
-// Retraso escalonado: la diapositiva n empieza (n-1) × 5 s después
+// Cada punto empieza en el turno de su diapositiva
 @for $i from 1 through $num-slides {
-    .slide:nth-child(#{$i}),
     .slider-dots span:nth-child(#{$i}) {
         animation-delay: ($i - 1) * $tiempo-slide;
     }
@@ -234,7 +251,7 @@ $ciclo: $tiempo-slide * $num-slides;
 .slider:hover,
 .slider:focus-within {
 
-    .slide,
+    .slider-track,
     .slider-dots span {
         animation-play-state: paused;
     }

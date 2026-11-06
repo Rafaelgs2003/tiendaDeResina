@@ -820,26 +820,29 @@ textarea.form-control {
     transform: scale(1);
   }
 }
-@keyframes slider-slide {
-  0% {
-    opacity: 0;
-    transform: translateX(6%) scale(1.03);
+@keyframes slider-deslizar {
+  0%, 20% {
+    transform: translateX(0);
   }
-  5%, 25% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
+  25%, 45% {
+    transform: translateX(-20%);
   }
-  30%, 100% {
-    opacity: 0;
-    transform: translateX(-6%) scale(1);
+  50%, 70% {
+    transform: translateX(-40%);
+  }
+  75%, 95% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(-80%);
   }
 }
 @keyframes slider-punto {
-  0%, 25% {
+  0%, 22% {
     background: #ffffff;
     transform: scale(1.3);
   }
-  30%, 100% {
+  26%, 100% {
     background: rgba(255, 255, 255, 0.45);
     transform: scale(1);
   }
@@ -848,53 +851,60 @@ textarea.form-control {
   position: relative;
   height: clamp(220px, 42vw, 420px);
   overflow: hidden;
-  background: #cde9ca;
+  background: #ffffff;
+  border: 1px solid #d3e6cf;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.slide {
-  position: absolute;
-  inset: 0;
+.slider-track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  opacity: 0;
-  animation: slider-slide 20s infinite;
+  width: 500%;
+  height: 100%;
+  animation: slider-deslizar 20s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
-.slide:first-child {
-  opacity: 1;
+
+.slide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  flex: 0 0 20%;
+  gap: 24px;
+  height: 100%;
+  margin: 0;
+  padding: 24px 24px 56px;
+  background: #ffffff;
 }
 .slide img {
   width: 100%;
   height: 100%;
+  border-radius: 12px;
   object-fit: contain;
 }
-.slide figcaption {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  max-width: calc(100% - 28px);
-  padding: 6px 14px;
-  background: rgba(29, 27, 32, 0.7);
-  border-radius: 20px;
-  color: #ffffff;
-  font-family: Georgia, serif;
-  font-size: 14px;
+
+.slide-texto {
+  align-self: center;
+  padding-left: 12px;
+}
+.slide-texto h3 {
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+.slide-texto p {
+  margin: 0;
 }
 
 .slider-dots {
   position: absolute;
-  bottom: 12px;
+  bottom: 16px;
   left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   display: flex;
   gap: 8px;
   padding: 6px 10px;
-  background: rgba(29, 27, 32, 0.55);
+  background: rgba(29, 27, 32, 0.6);
   border-radius: 20px;
-  transform: translateX(-50%);
 }
 .slider-dots span {
   width: 10px;
@@ -907,29 +917,25 @@ textarea.form-control {
   background: #ffffff;
 }
 
-.slide:nth-child(1),
 .slider-dots span:nth-child(1) {
   animation-delay: 0s;
 }
 
-.slide:nth-child(2),
 .slider-dots span:nth-child(2) {
   animation-delay: 5s;
 }
 
-.slide:nth-child(3),
 .slider-dots span:nth-child(3) {
   animation-delay: 10s;
 }
 
-.slide:nth-child(4),
 .slider-dots span:nth-child(4) {
   animation-delay: 15s;
 }
 
-.slider:hover .slide,
+.slider:hover .slider-track,
 .slider:hover .slider-dots span,
-.slider:focus-within .slide,
+.slider:focus-within .slider-track,
 .slider:focus-within .slider-dots span {
   animation-play-state: paused;
 }
@@ -1045,6 +1051,26 @@ textarea.form-control {
   }
   .product-main-image {
     min-height: 250px;
+  }
+  .slider {
+    height: 320px;
+  }
+  .slide {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 10px;
+    padding: 14px 14px 44px;
+  }
+  .slide-texto {
+    padding-left: 0;
+  }
+  .slide-texto h3 {
+    margin: 0;
+    font-size: 17px;
+  }
+  .slide-texto .label,
+  .slide-texto p {
+    display: none;
   }
   .data {
     grid-template-columns: 1fr;

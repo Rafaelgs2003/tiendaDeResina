@@ -96,6 +96,32 @@
         min-height: 250px;
     }
 
+    // Slider: en móvil la diapositiva pasa a una columna y se oculta la descripción
+    .slider {
+        height: 320px;
+    }
+
+    .slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+        gap: 10px;
+        padding: 14px 14px 44px;
+    }
+
+    .slide-texto {
+        padding-left: 0;
+
+        h3 {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .label,
+        p {
+            display: none;
+        }
+    }
+
     .data {
         grid-template-columns: 1fr;
     }
