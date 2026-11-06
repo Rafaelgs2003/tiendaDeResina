@@ -1,7 +1,15 @@
+// ==========================================================
+// IMAGIN3D · Punto de entrada de los estilos
+// Compilar:  npm run sass        (o)  npm run sass:watch
+// Orden de carga: lo general primero, lo responsive al final
+// ==========================================================
 @use "variables";
+@use "mixins";
+
 @use "general";
 @use "header";
 @use "productos";
 @use "footer";
-@use "responsive";
 @use "conocenos";
+@use "formularios";
+@use "responsive";

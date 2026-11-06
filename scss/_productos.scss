@@ -1,20 +1,26 @@
+@use "variables" as v;
+
+// ==========================================================
+// CAJAS DE IMAGEN
+// ==========================================================
 .image-box {
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: #f7f7f7;
-    border-radius: 10px;
+    background: v.$gris-fondo;
+    border-radius: v.$radio-sm;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 }
 
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-
-
+// ==========================================================
+// REJILLAS DE PRODUCTOS (index y producto)
+// ==========================================================
 .grid {
     display: grid;
     gap: 15px;
@@ -28,39 +34,52 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+// ==========================================================
+// TARJETA DE PRODUCTO
+// ==========================================================
 .product {
     overflow: hidden;
-    transition: .2s;
-}
+    transition: transform v.$transicion, box-shadow v.$transicion;
 
-.product:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
-}
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: v.$sombra-hover;
+    }
 
-.product>.image-box {
-    height: 180px;
-    background: #fafafa;
-}
+    > .image-box {
+        height: 180px;
+        background: v.$gris-fondo-claro;
+        border-radius: 0;
+    }
 
-.product .info {
-    padding: 12px;
-}
+    // La info ocupa el alto sobrante y el pie baja al fondo:
+    // así todos los botones quedan alineados en una misma fila
+    .info {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        padding: 12px;
+    }
 
-.product h3 {
-    margin: 6px 0;
-    line-height: 1.3;
-}
+    h3 {
+        margin: 6px 0;
+        line-height: 1.3;
+    }
 
-.product strong {
-    font-size: 15px;
+    p {
+        margin-bottom: 8px;
+    }
+
+    strong {
+        font-size: 15px;
+    }
 }
 
 .rating {
-    color: #168c25;
+    margin-top: 6px;
+    color: v.$verde-principal;
     font-size: 13px;
     letter-spacing: 2px;
-    margin-top: 6px;
 }
 
 .product-footer {
@@ -68,25 +87,27 @@
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    margin-top: 12px;
+    margin-top: auto;
+    padding-top: 12px;
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
 }
 
-.product-footer .btn {
-    padding: 8px 12px;
-    font-size: 12px;
-}
-
-
-
+// ==========================================================
+// FICHA DE PRODUCTO (producto.html)
+// ==========================================================
 .product-main-image {
     min-height: 380px;
-    background: #cde9ca;
+    background: v.$verde-imagen;
 }
 
-.split .price {
+.price {
     display: block;
     margin: 12px 0;
-    color: #078a22;
+    color: v.$verde-principal;
     font-size: 22px;
 }
 
@@ -95,42 +116,55 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
     margin: 18px 0;
-}
 
-.data div {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
 
-.data span {
-    font-size: 12px;
-    color: #666;
-}
+    span {
+        color: v.$texto-medio;
+        font-size: 12px;
+    }
 
-.data strong {
-    font-size: 13px;
-    font-weight: normal;
+    strong {
+        font-size: 13px;
+        font-weight: normal;
+    }
 }
 
 .cart {
     width: 100%;
 }
 
+// ==========================================================
+// FLECHAS DEL CARRUSEL
+// ==========================================================
 .arrows {
     display: flex;
     gap: 8px;
-}
 
-.arrows button {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #fff;
-    font-size: 16px;
-}
+    button {
+        width: 32px;
+        height: 32px;
+        background: v.$blanco;
+        border-radius: 50%;
+        box-shadow: v.$sombra-suave;
+        font-size: 16px;
+        transition: background-color v.$transicion, color v.$transicion;
 
-.arrows button:last-child {
-    background: #078a22;
-    color: #fff;
+        &:hover {
+            background: v.$verde-secundario;
+        }
+
+        &:last-child {
+            background: v.$verde-principal;
+            color: v.$blanco;
+
+            &:hover {
+                background: v.$verde-oscuro;
+            }
+        }
+    }
 }
