@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - IMAGIN3D</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS de IMAGIN3D -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/faviconIMAGIN3D.ico">
+</head>
+
+<body>
+    <div>
+        <header class="header navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <!-- LOGOTIPO -->
+                <a href="index.html" class="logo navbar-brand">
+                    <img src="img/logo-imagin3d.png" alt="Logotipo de IMAGIN3D" class="logo-img">
+                </a>
+
+                <!-- BOTÓN MENÚ MÓVIL -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- NAVEGACIÓN -->
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+
+                    <nav class="navbar-nav mx-auto">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                        <a href="colecciones.html" class="nav-link">Colecciones</a>
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                        <a href="conocenos.html" class="nav-link">Conócenos</a>
+                    </nav>
+
+                    <!-- USUARIO -->
+                    <div class="dropdown">
+                        <button class="user dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+
+                            <img src="img/logo.png" alt="Avatar" width="30" height="30" class="rounded-circle">
+
+                            Mi cuenta
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item" href="login.html">
+                                    Iniciar sesión
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item active" href="registro.html" aria-current="page">
+                                    Registrarse
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="section">
+                <form class="card form-card auth-card needs-validation" action="#" method="post" novalidate>
+                    <span class="label">Mi cuenta</span>
+                    <h1>Crear cuenta</h1>
+                    <p>Regístrate para hacer pedidos y seguir tus piezas personalizadas.</p>
+
+                    <div class="form-aviso" role="status" tabindex="-1" hidden>
+                        Cuenta creada correctamente. Ya puedes
+                        <a href="login.html">iniciar sesión</a>.
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                autocomplete="given-name" placeholder="Tu nombre" required>
+                            <div class="invalid-feedback">Indica tu nombre.</div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="apellidos" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="apellidos" name="apellidos"
+                                autocomplete="family-name" placeholder="Tus apellidos" required>
+                            <div class="invalid-feedback">Indica tus apellidos.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" autocomplete="email"
+                                placeholder="tucorreo@ejemplo.com" required>
+                            <div class="invalid-feedback">Introduce un correo válido.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                autocomplete="new-password" minlength="8" aria-describedby="ayudaPassword"
+                                placeholder="Mínimo 8 caracteres" required>
+                            <div id="ayudaPassword" class="form-text">Usa al menos 8 caracteres.</div>
+                            <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="password2" class="form-label">Repite la contraseña</label>
+                            <input type="password" class="form-control" id="password2" name="password2"
+                                autocomplete="new-password" placeholder="Repite tu contraseña" required>
+                            <div class="invalid-feedback">Las contraseñas no coinciden.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terminos" name="terminos"
+                                    required>
+                                <label class="form-check-label" for="terminos">
+                                    Acepto los <a href="terminos.html">términos y condiciones</a> y la
+                                    <a href="privacidad.html">política de privacidad</a>
+                                </label>
+                                <div class="invalid-feedback">Debes aceptar los términos para continuar.</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn form-submit">Crear cuenta</button>
+                        </div>
+                    </div>
+
+                    <p class="auth-footer">
+                        ¿Ya tienes cuenta?
+                        <a href="login.html">Inicia sesión</a>
+                    </p>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+
+            <div class="footer-grid">
+
+                <div>
+                    <a href="index.html" class="logo">
+
+                        IMAGIN3D
+                    </a>
+
+                    <p>
+                        Estudio especializado en impresión 3D con resina,
+                        figuras de colección y piezas personalizadas
+                        con acabados de alta calidad.
+                    </p>
+
+                    <span class="tag">
+                        Resina · 3D · Diseño
+                    </span>
+
+                    <p>
+                        Síguenos en nuestras redes sociales
+                    </p>
+
+                    <div>
+                        <a href="#">◎ Instagram</a>
+                        <a href="#">f Facebook</a>
+                        <a href="#">♪ TikTok</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Explora IMAGIN3D</h3>
+
+                    <a href="index.html">⌂ Inicio</a>
+                    <a href="colecciones.html">▦ Colecciones</a>
+                    <a href="contacto.html">✉ Contacto</a>
+                    <a href="perfil.html">♙ Mi perfil</a>
+                </div>
+
+                <div>
+                    <h3>Atención al cliente</h3>
+
+                    <a href="mailto:info@imagin3d.com">
+                        ✉ info@imagin3d.com
+                    </a>
+
+                    <a href="tel:+34600000000">
+                        ☎ +34 600 000 000
+                    </a>
+
+                    <span>⌖ Córdoba, España</span>
+
+                    <p>
+                        ¿Tienes una idea para imprimir?
+                        Contacta con nosotros.
+                    </p>
+
+                    <a href="contacto.html" class="tag">
+                        Solicitar información →
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 IMAGIN3D · Todos los derechos reservados
+                </span>
+
+                <div>
+                    <a href="privacidad.html">Privacidad</a>
+                    <a href="terminos.html">Términos y condiciones</a>
+                    <a href="contacto.html">Contacto</a>
+                    <a href="conocenos.html">Conócenos</a>
+                </div>
+                <div>
+                    <a rel="license noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                        target="_blank">
+                        <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png"
+                            alt="Licencia Creative Commons BY-NC-SA 4.0">
+                    </a>
+                    <p>
+                        Los contenidos originales de IMAGIN3D indicados en esta web
+                        están bajo licencia
+                        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                            Creative Commons BY-NC-SA 4.0
+                        </a>.
+                    </p>
+                </div>
+
+            </div>
+
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/formularios.js"></script>
+</body>
+
+</html>

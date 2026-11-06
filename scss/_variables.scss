@@ -1,10 +1,56 @@
-$verde-principal: #078a22;
-$verde-claro: #e3fbdc;
-$verde-secundario: #bce0b8;
+// ==========================================================
+// VARIABLES DE IMAGIN3D
+// Único punto donde se definen colores, tipografías, medidas
+// y breakpoints. El resto de parciales las usan con:
+//     @use "variables" as v;   →   v.$verde-principal
+// ==========================================================
 
+// ---------- Paleta verde (marca) ----------
+$verde-principal: #078a22;
+$verde-oscuro: #056b1b;      // hover / active
+$verde-texto: #18752a;       // etiquetas sobre fondo claro
+$verde-claro: #e3fbdc;       // fondo general
+$verde-secundario: #bce0b8;  // hero y tags claros
+$verde-suave: #dff6dc;       // hover / activo del menú
+$verde-imagen: #cde9ca;      // fondo imagen principal de producto
+
+// ---------- Neutros ----------
 $blanco: #ffffff;
 $negro: #000000;
-$oscuro: #1d1b20;
+$oscuro: #1d1b20;            // footer
+$texto: #222222;
+$texto-suave: #444444;
+$texto-medio: #666666;
+$gris-fondo: #f7f7f7;
+$gris-fondo-claro: #fafafa;
+$gris-borde: #eeeeee;
+$borde-verde: #d3e6cf;       // borde de tarjetas
 
+// ---------- Footer ----------
+$footer-texto: #c4c4c4;
+$footer-texto-suave: #aaaaaa;
+$footer-borde: #353239;
+
+// ---------- Alias semánticos ----------
 $primary: $verde-principal;
 $success: $verde-principal;
+
+// ---------- Tipografía ----------
+$fuente-base: Arial, sans-serif;
+$fuente-titulo: Georgia, serif;
+
+// ---------- Forma y efectos ----------
+$radio-sm: 10px;
+$radio-md: 12px;
+$radio-lg: 14px;
+$radio-pill: 20px;
+
+$sombra-suave: 0 2px 8px rgba($negro, .06);
+$sombra-hover: 0 8px 20px rgba($negro, .12);
+
+$transicion: .2s ease;
+
+// ---------- Breakpoints (max-width) ----------
+$bp-lg: 991px;  // tablet / menú colapsado de Bootstrap
+$bp-md: 767px;  // móvil grande
+$bp-sm: 600px;  // móvil

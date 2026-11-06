@@ -1,25 +1,33 @@
-@media (max-width: 991px) {
-    .navbar-nav {
+@use "variables" as v;
+@use "mixins" as m;
+
+// ==========================================================
+// RESPONSIVE
+// Tres breakpoints únicos (ver _variables.scss):
+//   $bp-lg 991px  →  tablet / menú colapsado de Bootstrap
+//   $bp-md 767px  →  móvil grande
+//   $bp-sm 600px  →  móvil
+// Este parcial se importa el último para ganar a los demás.
+// ==========================================================
+
+// ---------- Tablet (≤ 991px) ----------
+@include m.below(v.$bp-lg) {
+    .header .navbar-nav {
         align-items: stretch;
+        gap: 4px;
         padding: 15px 0;
     }
 
-    .navbar .user {
+    .header .user {
         margin-top: 10px;
     }
-}
 
-@media (max-width: 900px) {
     .products {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .hero {
         grid-template-columns: 1.5fr 1fr;
-    }
-
-    .hero h1 {
-        font-size: 25px;
     }
 
     .product-main-image {
@@ -31,14 +39,29 @@
     }
 }
 
-@media (max-width: 600px) {
-    
+// ---------- Móvil grande (≤ 767px) ----------
+@include m.below(v.$bp-md) {
+    .product {
+        > .image-box {
+            height: 150px;
+        }
 
+        h3 {
+            font-size: 15px;
+        }
+
+        .info {
+            padding: 10px;
+        }
+    }
+}
+
+// ---------- Móvil (≤ 600px) ----------
+@include m.below(v.$bp-sm) {
     .header {
         min-height: 60px;
         padding: 12px 15px;
     }
-
 
     main {
         padding: 12px;
@@ -51,14 +74,10 @@
 
     .hero {
         padding: 15px;
-    }
 
-    .hero h1 {
-        font-size: 26px;
-    }
-
-    .hero .image-box {
-        min-height: 180px;
+        .image-box {
+            min-height: 180px;
+        }
     }
 
     .section {
@@ -66,7 +85,6 @@
     }
 
     .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
     }
 
@@ -74,17 +92,44 @@
         grid-template-columns: 1fr;
     }
 
-    .product>.image-box {
-        height: 150px;
-    }
-
     .product-main-image {
         min-height: 250px;
+    }
+
+    // Slider: en móvil la diapositiva pasa a una columna y se oculta la descripción
+    .slider {
+        height: 320px;
+    }
+
+    .slide {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+        gap: 10px;
+        padding: 14px 14px 44px;
+    }
+
+    .slide-texto {
+        padding-left: 0;
+
+        h3 {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .label,
+        p {
+            display: none;
+        }
+    }
+
+    .data {
+        grid-template-columns: 1fr;
     }
 
     .final {
         flex-direction: column;
         align-items: flex-start;
+        padding: 18px;
     }
 
     .footer-grid {
@@ -95,25 +140,11 @@
 
     .footer-bottom {
         flex-direction: column;
+        align-items: flex-start;
         padding: 15px 18px;
-    }
 
-    .footer-bottom div {
-        flex-wrap: wrap;
-    }
-}
-@media (max-width: 767px) {
-    .product {
-        .image-box {
-            height: 150px;
-        }
-
-        h3 {
-            font-size: 15px;
-        }
-
-        .info {
-            padding: 10px;
+        div {
+            flex-wrap: wrap;
         }
     }
 }

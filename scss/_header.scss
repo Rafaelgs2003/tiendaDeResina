@@ -1,61 +1,94 @@
+@use "variables" as v;
+
+// ==========================================================
+// CABECERA (navbar de Bootstrap + estilo IMAGIN3D)
+// ==========================================================
 .header {
-    min-height: 65px;
-    padding: 12px 24px;
+    // Colores del navbar de Bootstrap alineados con la marca
+    --bs-navbar-color: #{v.$texto};
+    --bs-navbar-hover-color: #{v.$verde-oscuro};
+    --bs-navbar-active-color: #{v.$verde-oscuro};
+    --bs-navbar-toggler-border-color: #{v.$verde-secundario};
+
+    position: sticky;
+    top: 0;
+    z-index: 1030;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    min-height: 65px;
+    padding: 12px 24px;
+    background: v.$blanco;
+    border-bottom: 1px solid v.$gris-borde;
+    box-shadow: v.$sombra-suave;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: Georgia, serif;
+    font-family: v.$fuente-titulo;
     font-size: 18px;
     white-space: nowrap;
 }
 
-.logo-icon {
-    width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #d9f5d5;
-    font-size: 14px;
+.logo-img {
+    display: block;
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
 }
 
-nav {
-    display: flex;
+// Menú principal
+.header .navbar-nav {
     align-items: center;
     gap: 8px;
+
+    a {
+        padding: 9px 12px;
+        border-radius: 18px;
+        font-size: 12px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        transition: background-color v.$transicion, color v.$transicion;
+    }
+
+    a:hover,
+    a.active {
+        background: v.$verde-suave;
+    }
 }
 
-nav a,
+// Botón "Mi cuenta"
 .user {
     padding: 9px 12px;
+    background: transparent;
     border-radius: 18px;
+    color: v.$texto;
     font-size: 12px;
     text-transform: uppercase;
     white-space: nowrap;
+    transition: background-color v.$transicion;
+
+    &:hover,
+    &.show {
+        background: v.$gris-borde;
+    }
+
+    img {
+        margin-right: 6px;
+        vertical-align: middle;
+    }
 }
 
-nav a:hover,
-nav .active {
-    background: #dff6dc;
-}
+// Desplegable de usuario
+.header .dropdown-menu {
+    --bs-dropdown-link-hover-bg: #{v.$verde-suave};
+    --bs-dropdown-link-active-bg: #{v.$verde-principal};
+    --bs-dropdown-border-color: #{v.$borde-verde};
+    --bs-dropdown-border-radius: #{v.$radio-md};
 
-.user:hover {
-    background: #f1f1f1;
-}
-
-.logo-img {
-    width: 65px;
-    height: 65px !important;
-    object-fit: contain;
-    display: block;
+    font-size: 13px;
+    box-shadow: v.$sombra-hover;
 }

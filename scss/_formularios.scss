@@ -1,0 +1,196 @@
+@use "variables" as v;
+@use "mixins" as m;
+
+// ==========================================================
+// FORMULARIOS (contacto, login y registro)
+// Usa las clases de Bootstrap (.form-control, .form-select,
+// .form-check) retocadas con la paleta de IMAGIN3D.
+// ==========================================================
+
+// ---------- Campos ----------
+.form-label {
+    margin-bottom: 6px;
+    color: v.$texto;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-control,
+.form-select {
+    padding: 10px 12px;
+    border-color: v.$borde-verde;
+    border-radius: v.$radio-sm;
+    color: v.$texto;
+    font-size: 14px;
+
+    &::placeholder {
+        color: v.$texto-medio;
+        opacity: .7;
+    }
+
+    &:focus {
+        border-color: v.$verde-principal;
+        box-shadow: 0 0 0 .2rem rgba(v.$verde-principal, .2);
+    }
+}
+
+textarea.form-control {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.form-check-input {
+    border-color: v.$verde-texto;
+
+    &:checked {
+        background-color: v.$verde-principal;
+        border-color: v.$verde-principal;
+    }
+
+    &:focus {
+        border-color: v.$verde-principal;
+        box-shadow: 0 0 0 .2rem rgba(v.$verde-principal, .2);
+    }
+}
+
+.form-check-label {
+    color: v.$texto-suave;
+    font-size: 13px;
+}
+
+.form-text {
+    color: v.$texto-medio;
+    font-size: 12px;
+}
+
+.invalid-feedback {
+    font-size: 12px;
+}
+
+// Botón de envío a todo el ancho
+.form-submit {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+// Enlaces dentro de formularios
+.form-card a:not(.btn) {
+    color: v.$verde-principal;
+    font-weight: bold;
+
+    &:hover {
+        color: v.$verde-oscuro;
+        text-decoration: underline;
+    }
+}
+
+// Mensaje de confirmación tras enviar
+.form-aviso {
+    margin-bottom: 18px;
+    padding: 12px 15px;
+    background: v.$verde-suave;
+    border: 1px solid v.$verde-secundario;
+    border-radius: v.$radio-sm;
+    color: v.$verde-oscuro;
+    font-size: 14px;
+
+    &[hidden] {
+        display: none;
+    }
+}
+
+// ---------- Tarjeta de formulario ----------
+.form-card {
+    padding: 28px;
+
+    h1,
+    h2 {
+        margin-bottom: 8px;
+    }
+
+    > p {
+        margin-bottom: 20px;
+    }
+}
+
+// Login y registro: tarjeta centrada
+.auth-card {
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+}
+
+.auth-footer {
+    margin: 18px 0 0;
+    text-align: center;
+}
+
+.auth-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+}
+
+// ---------- Contacto: datos de la tienda ----------
+.contact-info {
+    height: 100%;
+    padding: 28px;
+    background: v.$verde-secundario;
+    border: 0;
+
+    h2 {
+        margin-bottom: 8px;
+    }
+
+    p {
+        color: v.$texto;
+    }
+}
+
+.contact-list {
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 14px;
+    }
+
+    strong {
+        display: block;
+        font-size: 12px;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        color: v.$verde-oscuro;
+        text-decoration: underline;
+    }
+}
+
+.contact-icon {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: v.$blanco;
+    border-radius: 50%;
+    color: v.$verde-principal;
+}
+
+@include m.below(v.$bp-sm) {
+    .form-card,
+    .contact-info {
+        padding: 18px;
+    }
+}

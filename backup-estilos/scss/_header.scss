@@ -1,0 +1,61 @@
+.header {
+    min-height: 65px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.logo-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #d9f5d5;
+    font-size: 14px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav a,
+.user {
+    padding: 9px 12px;
+    border-radius: 18px;
+    font-size: 12px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+nav a:hover,
+nav .active {
+    background: #dff6dc;
+}
+
+.user:hover {
+    background: #f1f1f1;
+}
+
+.logo-img {
+    width: 65px;
+    height: 65px !important;
+    object-fit: contain;
+    display: block;
+}

@@ -1,42 +1,21 @@
-
 @use "variables" as v;
 
+// ==========================================================
+// PÁGINA "CONÓCENOS": MULTIMEDIA
+// (las reglas por breakpoint están en _responsive.scss)
+// ==========================================================
 video {
     display: block;
+    width: 100%;
     max-width: 100%;
-    background: #111;
+    background: v.$oscuro;
     aspect-ratio: 16 / 9;
     object-fit: contain;
+    border-radius: v.$radio-md;
 }
 
 audio {
     display: block;
-    max-width: 100%;
-}
-
-@media (max-width: 768px) {
-    .multimedia-title {
-        font-size: 26px;
-    }
-
-    video {
-        aspect-ratio: 16 / 9;
-    }
-}
-
-video {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-    border-radius: 12px;
-}
-
-@media (max-width: 767px) {
-    video {
-        width: 100%;
-    }
-
-    .multimedia-title {
-        font-size: 24px;
-    }
+    max-width: 100%;
 }

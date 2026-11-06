@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: cubo 3D con CSS - IMAGIN3D</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            background: #e3fbdc;
+            font-family: Georgia, serif;
+        }
+
+        /* 1. ESCENA: define la profundidad.
+              perspective = distancia (en px) entre el ojo y el plano z=0.
+              Cuanto menor es, más exagerada se ve la perspectiva. */
+        .escena {
+            width: 200px;
+            height: 200px;
+            perspective: 800px;
+        }
+
+        /* 2. CUBO: contenedor de las 6 caras.
+              preserve-3d hace que las caras hijas mantengan su posición 3D
+              (sin esto se aplanarían sobre el plano del padre). */
+        .cubo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: girar 12s linear infinite;
+        }
+
+        /* 3. CARAS: cuadrados de 200 × 200 apilados en el mismo punto. */
+        .cara {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(7, 138, 34, .85);
+            border: 2px solid #e3fbdc;
+            color: #fff;
+            font-size: 22px;
+            backface-visibility: visible;
+        }
+
+        /* Cada cara se gira hacia su lado y se "empuja" hacia fuera
+           la mitad del lado (100px) con translateZ: así se forma el cubo.
+           El orden importa: primero rotate, después translateZ (que
+           se mide ya en el eje girado). */
+        .frente {
+            transform: translateZ(100px);
+        }
+
+        .atras {
+            transform: rotateY(180deg) translateZ(100px);
+        }
+
+        .derecha {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+
+        .izquierda {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+
+        .arriba {
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        .abajo {
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+
+        /* 4. KEYFRAMES: solo se describen el estado inicial y el final.
+              El navegador calcula (interpola) todos los fotogramas intermedios.
+              Se deja rotateX(-20deg) fijo para ver el cubo ligeramente
+              desde arriba, y rotateY pasa de 0 a 360° para dar una vuelta. */
+        @keyframes girar {
+            from {
+                transform: rotateX(-20deg) rotateY(0deg);
+            }
+
+            to {
+                transform: rotateX(-20deg) rotateY(360deg);
+            }
+        }
+
+        /* "linear" mantiene velocidad constante; con "ease" el cubo
+           frenaría y aceleraría en cada vuelta. */
+
+        /* Pausa al pasar el ratón */
+        .escena:hover .cubo {
+            animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cubo {
+                animation: none;
+                transform: rotateX(-20deg) rotateY(30deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="escena" role="img" aria-label="Cubo 3D girando, creado con CSS">
+        <div class="cubo">
+            <div class="cara frente">IMAGIN3D</div>
+            <div class="cara atras">Resina</div>
+            <div class="cara derecha">3D</div>
+            <div class="cara izquierda">Diseño</div>
+            <div class="cara arriba">Ideas</div>
+            <div class="cara abajo">Piezas</div>
+        </div>
+    </div>
+</body>
+
+</html>

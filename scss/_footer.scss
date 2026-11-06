@@ -1,6 +1,16 @@
+@use "variables" as v;
+
+// ==========================================================
+// PIE DE PÁGINA
+// ==========================================================
 footer {
-    background: #1d1b20;
-    color: #fff;
+    background: v.$oscuro;
+    color: v.$blanco;
+
+    // El texto global de párrafos es oscuro: en el footer debe ser claro
+    p {
+        color: v.$footer-texto;
+    }
 }
 
 .footer-grid {
@@ -8,45 +18,88 @@ footer {
     grid-template-columns: 2fr 1fr 1fr;
     gap: 40px;
     padding: 30px 24px;
-}
 
-.footer-grid p {
-    max-width: 320px;
-    margin: 12px 0;
-    color: #c4c4c4;
-}
+    p {
+        max-width: 320px;
+        margin: 12px 0;
+    }
 
-.footer-grid h3 {
-    margin-bottom: 12px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-}
+    h3 {
+        margin-bottom: 12px;
+        color: v.$blanco;
+        font-family: v.$fuente-base;
+        font-size: 14px;
+        font-weight: bold;
+    }
 
-.footer-grid a,
-.footer-grid span {
-    display: block;
-    margin-bottom: 9px;
-    color: #c4c4c4;
-    font-size: 12px;
-}
+    // Enlaces de lista (se excluyen el logo y las etiquetas, que tienen su propio estilo)
+    a:not(.logo):not(.tag),
+    span:not(.tag) {
+        display: block;
+        margin-bottom: 9px;
+        color: v.$footer-texto;
+        font-size: 12px;
+        transition: color v.$transicion;
+    }
 
-.footer-grid a:hover,
-.footer-bottom a:hover {
-    color: #fff;
+    a:not(.logo):not(.tag):hover {
+        color: v.$blanco;
+        text-decoration: underline;
+    }
+
+    // Logo de texto del footer
+    .logo {
+        color: v.$blanco;
+        font-size: 20px;
+    }
+
+    // Redes sociales en una sola línea
+    > div > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+
+        a {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .footer-bottom {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     gap: 15px;
     padding: 15px 24px;
-    border-top: 1px solid #353239;
-    color: #aaa;
+    border-top: 1px solid v.$footer-borde;
+    color: v.$footer-texto-suave;
     font-size: 11px;
-}
 
-.footer-bottom div {
-    display: flex;
-    gap: 15px;
+    div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    p {
+        max-width: 360px;
+        margin: 0;
+        color: v.$footer-texto-suave;
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    a:hover {
+        color: v.$blanco;
+    }
+
+    p a {
+        text-decoration: underline;
+    }
+
+    img {
+        display: block;
+        max-width: none;
+    }
 }

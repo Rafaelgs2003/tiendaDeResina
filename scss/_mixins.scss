@@ -1,0 +1,17 @@
+// ==========================================================
+// MIXINS
+// Uso:  @use "mixins" as m;   →   @include m.below(v.$bp-sm) { ... }
+// ==========================================================
+
+// Aplica los estilos cuando el ancho es igual o menor al breakpoint
+@mixin below($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+// Anillo de foco accesible y consistente
+@mixin focus-ring($color) {
+    outline: 3px solid $color;
+    outline-offset: 2px;
+}
